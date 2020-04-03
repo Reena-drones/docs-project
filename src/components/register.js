@@ -1,9 +1,6 @@
 import React from "react";
-import {compose, withHandlers, withProps ,withState} from "recompose";
+import {compose, withHandlers ,withState} from "recompose";
 import '../static/modal.css'
-// import validations from './components/validations';
-
-// function validateForm => (props) => console.log("validate", props) return ;
 const InitialFormData =
     {"username":"",
     "email":"",
@@ -31,9 +28,9 @@ export default compose(
 
         changeConfirmPassword: ({setConfirmPassword, formData, setPasswordError}) =>(event)=> {
             event.preventDefault();
-            setConfirmPassword(event.target.value)
+            setConfirmPassword(event.target.value);
             if (formData["password"] !== event.target.value)
-                setPasswordError("Passwords do not match")
+                setPasswordError("Passwords do not match");
 
             else
                 setPasswordError("")
@@ -53,7 +50,6 @@ export default compose(
                         'Accept': 'application/json'}})
                 .then((response) => {
                     if(response.status !== 200){
-                        console.log("problem", response);
                         setMessage("Unable to register. Please try after some time")
                     }
                     response.json()

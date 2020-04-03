@@ -15,7 +15,6 @@ export default compose(
                 return handleEmailChange(email = event.target.value)
             }
         },
-
         handlePasswordChange: ({handlePasswordChange, password}) => {
             return (event) => {
                 event.preventDefault();
@@ -27,6 +26,9 @@ export default compose(
         },
 
         loginUser: ({email, password, history, setMessage}) => (event) => {
+            if (!email || !password){
+                setMessage("All field are required")
+            }
             let data = {"email": email, "password": password};
             event.preventDefault();
             fetch('http://localhost:8000/signIn', {
@@ -47,7 +49,7 @@ export default compose(
                                     history.push('/profile');
                                 }
                                 else
-                                    setMessage(data["message"], {params:"data.username"})
+                                    setMessage(data["message"])
                             })
                     }
                 )

@@ -11,8 +11,8 @@ USERS_MAP = dict()
 ACTIVE_USER_ID = list()
 
 def users_event(temp=None):
+    # Create JSON to send
     if temp != None:
-        print("none", users_event)
         return json.dumps({'type': 'remove_users', 'count': len(USERS), 'active':ACTIVE_USER_ID, "update_time": temp})
     return json.dumps({'type': 'users', 'count': len(USERS), 'active':ACTIVE_USER_ID})
 
@@ -25,18 +25,20 @@ async def notify_users(temp = None):
 
 async def register(websocket, path):
     id = path[1:]
+    USERS.add(websocket)
+    USERS_MAP[websocket] = id
     if id not in ACTIVE_USER_ID:
-        USERS.add(websocket)
         ACTIVE_USER_ID.append(id)
-        USERS_MAP[websocket] = id
     await notify_users()
 
 
 async def unregister(websocket, path, temp=None):
     id = path[1:]
-    USERS.remove(websocket)
-    ACTIVE_USER_ID.remove(id)
-    del USERS_MAP[websocket]
+    if websocket in USERS:
+        USERS.remove(websocket)
+        del USERS_MAP[websocket]
+    if id not in USERS_MAP.values() and id in ACTIVE_USER_ID :
+        ACTIVE_USER_ID.remove(id)
     await notify_users(temp)
 
 async def counter(websocket, path):

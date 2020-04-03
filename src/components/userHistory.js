@@ -3,7 +3,6 @@ import {compose, lifecycle, withHandlers, withProps, withState} from "recompose"
 import { withRouter } from "react-router-dom";
 import '../App.css';
 import '../static/modal.css'
-import Avatar from "react-avatar";
 
 export default compose(
     withRouter,
@@ -17,8 +16,6 @@ export default compose(
     })
 
 )(function UserHistory({hideHistory, allData, activeUsers, ...props}) {
-    // let d = new Date()
-    // const all = [{"username":"pop", "email":"joy@mail.com", "time":d.toLocaleString()}];
     return (
         <div className="modal-Section-new">
             <div className="sponsor-map-modal">
@@ -41,7 +38,6 @@ export default compose(
                         ))}
                 </table>
                  </div>
-
             </div>
             </div>
         </div>

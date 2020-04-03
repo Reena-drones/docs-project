@@ -1,7 +1,6 @@
 import React from 'react';
 import {compose, lifecycle, withHandlers, withState} from "recompose";
 import '../static/header.css'
-import '../static/convo.css'
 import Active from './active'
 import UserHistory from './userHistory'
 import {withRouter} from 'react-router-dom';
@@ -9,7 +8,6 @@ import {withRouter} from 'react-router-dom';
 export default compose(
     withRouter,
     withState("activeUsers", "setActiveUsers", []),
-    withState("onUsers", "setOnUsers", {}),
     withState("ws", "setws", {}),
     withState("allData", "setAllData", []),
     withState("show", "setShow", false),
@@ -27,15 +25,15 @@ export default compose(
                headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}
            })
                .then((response) => {
-                       if (response.status !== 200) {
-                       }
-                       response.json()
-                           .then((data) => {
-                               if (data.status === 200)
-                                   console.log("inserted successfully");
-                               else
-                                   props.logoutUser()
-                           })
+                   if (response.status !== 200) {
+                   }
+                   response.json()
+                       .then((data) => {
+                           if (data.status === 200)
+                               console.log("inserted successfully");
+                           else
+                               props.logoutUser()
+                       })
                    }
                );
                history.push('/login')
@@ -71,7 +69,6 @@ export default compose(
                                         websocket.onmessage = function (event) {
                                             let res = JSON.parse(event.data);
                                             props.setActiveUsers(res["active"]);
-                                            console.log(res["type"] === "remove_users", data.users);
                                             if (res["type"] === "remove_users" ) {
                                                 for (let item of data.users) {
                                                     console.log(res["update_time"], item["email"]);
@@ -79,11 +76,8 @@ export default compose(
                                                         item["time"] = res["update_time"][item["email"]]
                                                     }
                                                 }
-                                                console.log(data.users);
                                                 props.setAllData(data.users)
-
                                             }
-                                            props.setOnUsers(res["active"])
                                         }
                                     }
                                 }
@@ -98,7 +92,7 @@ export default compose(
             }
         },
     })
-)(function Profile ({logoutUser, activeUsers, showHistory, hideHistory,show, allData, onUsers, ...props}) {
+)(function Profile ({logoutUser, activeUsers, showHistory, hideHistory,show, allData, ...props}) {
     return(
         <React.Fragment>
         <div className={show?"blur-screen":""}>
@@ -174,7 +168,7 @@ export default compose(
                 </p>
             </div>
         </div>
-            {show ? <UserHistory hideHistory={hideHistory} onUsers={onUsers} activeUsers={activeUsers} allData={allData}/>:""}
+            {show ? <UserHistory hideHistory={hideHistory} activeUsers={activeUsers} allData={allData}/>:""}
         </React.Fragment>
     )
 })

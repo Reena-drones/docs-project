@@ -1,6 +1,5 @@
 import React from 'react';
 import {compose, withHandlers, withProps, withState, lifecycle} from "recompose";
-import '../static/friends.css'
 import Avatar from 'react-avatar';
 
 export default compose(
@@ -10,7 +9,7 @@ export default compose(
         showDiv:({setHover, currentHover, allData}) => (event) => {
             console.log("event in active",event.target.id);
             event.preventDefault();
-            setHover(true)
+            setHover(false)
         },
         hideDiv:({setHover}) => (event) => {
             event.preventDefault();
@@ -23,7 +22,7 @@ export default compose(
         <div style={{"display": "flex"}}>
             {activeUsers.map((item, index) => (
             <div id={index} onMouseOver={showDiv} onMouseLeave={hideDiv}>
-                <Avatar round={true} size="40px" name={item} title=""/>
+                <Avatar round={true} size="40px" name={item}/>
                 </div>
             ))}
             {hover?<div className= "ul-value-lang">

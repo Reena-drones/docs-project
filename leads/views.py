@@ -5,6 +5,7 @@ from .models import Users
 from django.http import JsonResponse
 from django.db import IntegrityError
 from datetime import datetime
+from django.utils import timezone
 
 
 @csrf_exempt
@@ -61,7 +62,7 @@ def insert_time(request):
     if request.method == "POST":
         query = json.loads(request.body)
         res = Users.objects.filter(email = query["email"])
-        s = res.update(last_active = datetime.now())
+        s = res.update(last_active = timezone.now())
         print (res)
         return JsonResponse({"status": 200, "message": "Inserted successfully"})
     return JsonResponse({"status": 400, "message": ""})
