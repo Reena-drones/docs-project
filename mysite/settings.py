@@ -25,7 +25,7 @@ SECRET_KEY = '96)tg423@k#(*=991e11@!9_g-%15(w%41^&=ugdx*=uii1%n@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fierce-sierra-61167.herokuapp.com']
 
 
 # Application definition
