@@ -1,0 +1,16 @@
+.convo-div{
+    margin-left: 32%;
+}
+.start{
+    text-align: center;
+}
+
+.convo-heading{
+    text-align: left;
+    text-transform: capitalize;
+
+}
+
+.blur-screen{
+    opacity: 0.5;
+}

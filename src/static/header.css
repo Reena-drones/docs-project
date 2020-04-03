@@ -1,0 +1,18 @@
+.header {
+  padding: 20px;
+  text-align: left;
+  background: #1abc9c;
+  color: white;
+  font-size: 10px;
+}
+
+.vl{
+  border-left: 6px solid green;
+  /*color: #1abc9c;*/
+  height: 871px;
+  position: absolute;
+  left: 30%;
+  margin-left: -3px;
+  top: 90px;
+}
+

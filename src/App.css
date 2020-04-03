@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-size: cover;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.button-signin{
+  position: relative;
+  margin-top: 20px;
+  width: 280px;
+  height: 30px;
+  background-color: beige;
+}

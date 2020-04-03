@@ -1,0 +1,111 @@
+body {
+    text-align: center;
+}
+.modal-Section-new, .change-password-modal {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    overflow: auto;
+    background: #00000082;
+}
+
+.ul-value-lang {
+    background: #fff;
+    box-shadow: 0 2px 5px #333;
+    border-radius: 2px;
+    cursor: default;
+    text-align: left;
+    color: #5c5d5d;
+    position: absolute;
+    right: 37px;
+    top: 50px;
+    width: 150px;
+    height: 40px;
+    z-index: 9;
+}
+.sponsor-map-modal {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 200px;
+    box-shadow: 0 2px 5px #333;
+    background: #ffffff;
+}
+.md2-inner-content{
+    padding: 20px;
+}
+.modal {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 800px;
+    height: 800px;
+    line-height: 20px;
+    display: none;
+     z-index: 9999;
+    background-color: #FFFFE0;
+}
+
+.modal_close {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    line-height: 1.4;
+    cursor: pointer;
+    background-color: #888;
+    color: red;
+    padding: 0 5px;
+}
+
+.modal--show {
+    display: block;
+}
+
+.backdropStyle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    /*right: 50px;*/
+    z-index: 9900;
+    opacity: 0.8;
+    background-color: #888;
+}
+
+.modalInputBox{
+  line-height: 30px;
+}
+
+.description{
+    position: center;
+    height:120px;
+    width:250px;
+    overflow:auto;
+    left:300px;
+    right: 500px;
+    border:20px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.close{
+    display:block;
+    float:right;
+    width:30px;
+    height:29px;
+    background:url(http://www.htmlgoodies.com/img/registrationwelcome/close_icon.png) no-repeat center center;
+}
