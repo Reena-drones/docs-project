@@ -10,6 +10,7 @@ Set up Database:
 Create a database in your postgres and replace the NAME with your db name.
 
 Inside docs_project>mysite>settings.py
+
 	DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -23,8 +24,10 @@ Inside docs_project>mysite>settings.py
 
 Install dependencies:
 In your project root
-	npm install
-	pip install requirements.txt
+
+
+	1.npm install
+	2.pip install requirements.txt
 
 Start project:
 1. python socketconnection\connectdemo.py 
