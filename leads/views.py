@@ -33,7 +33,8 @@ def register(request):
         if request.method == "POST":
             data = json.loads(request.body)
             status = Users.objects.create(**data)
-            print("status in register",status)
+            del data["email"]
+            data["status"]  = 200
             return JsonResponse(data)
     except IntegrityError as e:
         print("exc",e)

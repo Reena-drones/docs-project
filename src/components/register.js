@@ -38,7 +38,7 @@ export default compose(
         goToLogin:({history})=>()=>{
             history.push('/login');
         },
-        onSubmitForm:({formData, setMessage, validateForm}, history)=> (event)=>{
+        onSubmitForm:({formData, setMessage, validateForm, history})=> (event)=>{
             event.preventDefault();
             if (!validateForm){
                 setMessage("All field are required")
@@ -54,10 +54,11 @@ export default compose(
                     }
                     response.json()
                         .then((data) => {
+                            console.log(data)
                             if(data.status === 200) {
                                 setMessage("");
                                 localStorage.setItem('id', data.email);
-                                history.push('/profile', {params:"data.username"});
+                                history.push('/profile');
                             }
                             else{
                                 setMessage(data["message"])

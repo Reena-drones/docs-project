@@ -5,10 +5,8 @@
   color: white;
   font-size: 10px;
 }
-
 .vl{
   border-left: 6px solid green;
-  /*color: #1abc9c;*/
   height: 871px;
   position: absolute;
   left: 30%;
