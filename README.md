@@ -1,3 +1,7 @@
+Description: 
+A CRUD application that can register and login users.This application shows all the usres that are currently online and viewing or reading the article. We can see the avatars of all the users with their details and history of the offline users.
+This project is based on Django and ReactJS(recompose).
+
 TO run the project:
 
 You must have following installed in your system:
