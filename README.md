@@ -35,5 +35,5 @@ In your project root
 
 Start project:
 1. python socketconnection\connectdemo.py 
-2. npm run build
+2. npm run buil
 3. python manage.py runserver
