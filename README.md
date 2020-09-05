@@ -36,4 +36,6 @@ In your project root
 Start project:
 1. python socketconnection\connectdemo.py 
 2. npm run build
-3. python manage.py runserver
+3. python manage.py makemigrations
+4. python manage.py migrate
+5. python manage.py runserver
